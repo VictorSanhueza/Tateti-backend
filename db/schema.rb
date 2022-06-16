@@ -12,9 +12,13 @@
 
 ActiveRecord::Schema[7.0].define(version: 2022_05_28_161837) do
   create_table "games", force: :cascade do |t|
-    t.string "token"
     t.integer "player_1_id"
     t.integer "player_2_id"
+    t.string "token"
+    t.boolean "game_state"
+    t.integer "turn"
+    t.string "board_plays"
+    t.string "winner"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -22,6 +26,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_28_161837) do
   create_table "players", force: :cascade do |t|
     t.string "name"
     t.string "last_name"
+    t.string "token"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
