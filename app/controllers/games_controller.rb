@@ -7,7 +7,6 @@ class GamesController < ApplicationController
             render_response
         else
             if @player.id != @game.player_1_id
-                # @first_turn = rand(1..2)
                 @game.assign_attributes(player_2_id: @player.id, turn: 2)
                 render_response
             else
@@ -45,7 +44,7 @@ class GamesController < ApplicationController
                 @game.assign_attributes(turn: @game.turn == 2 ? 1 : 2, winner: params[:winner])
                 render_response
             else
-                @game.assign_attributes(game_state: params[:game_state])
+                @game.assign_attributes(game_state: false)
                 render_response
             end
         end
